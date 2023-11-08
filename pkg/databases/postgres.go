@@ -2,6 +2,7 @@ package databases
 
 import (
 	"fmt"
+	"github.com/Ahliyor25/ion-agency-back/internal/entities"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -48,6 +49,10 @@ func Postgres(params Dependencies) (pdb *gorm.DB) {
 	}
 
 	params.Logger.Info("Postgres pong!")
+
+	pdb.AutoMigrate(&entities.User{})
+	pdb.AutoMigrate(&entities.Role{})
+	pdb.AutoMigrate(&entities.File{})
 
 	return
 }

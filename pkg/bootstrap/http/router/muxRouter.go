@@ -34,7 +34,7 @@ func (h *HTTPRouter) GET(pattern string, handler http.HandlerFunc, mw ...HTTPMw)
 }
 
 // POST ...
-func (h *HTTPRouter) POST(pattern string, handler http.HandlerFunc, mw ...HTTPMw) {
+func (h *HTTPRouter) POST(pattern string, handler func(rw http.ResponseWriter, r *http.Request), mw ...HTTPMw) {
 	h.Handle("POST", pattern, handler, mw...)
 }
 

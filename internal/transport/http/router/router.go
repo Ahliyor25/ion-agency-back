@@ -13,5 +13,7 @@ func NewRouter(h *handlers.Handler, mw middlewares.Middleware) (router *transpor
 
 	router.GET("/ping", h.HPingPong, mw.CORS)
 
+	router.POST("/auth/registration", h.HRegistration, mw.CORS)
+
 	return
 }
